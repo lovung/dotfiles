@@ -1,10 +1,14 @@
 #!/bin/bash
-CONFIG='~/.config'
+CONFIG=$HOME'/.config'
 
 # Linked neovim config
 rm -rf $CONFIG/nvim/init.vim $CONFIG/nvim/syntax
 ln -s $(pwd)/nvim/init.vim $CONFIG/nvim/init.vim 
 ln -s $(pwd)/nvim/syntax $CONFIG/nvim/syntax
+
+# Linked kitty config
+rm -rf $CONFIG/kitty/kitty.conf 
+ln -s $(pwd)/kitty/kitty.conf $CONFIG/kitty/kitty.conf 
 
 # Profile (export and alias)
 rm -rf ~/.profile
