@@ -8,13 +8,16 @@ end
 vim.cmd [[command! Reload lua require('lovung.utils').Reload()]]
 
 -- Load vim-plug plugins
-if require('lovung.plugins')() then
-  return
-end
+require('lovung.plugins')
 
 -- Neovim builtin LSP configuration
 require('lovung.lsp')
 
+-- Neovim builtin TreeSitter configuration
+require('lovung.treesitter')
+
 -- Neovim builtin Compe configuration
 require('lovung.compe')
 
+-- Neovim builtin LSP Signature configuration
+require('lovung.signature')

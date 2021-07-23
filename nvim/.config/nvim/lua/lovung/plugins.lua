@@ -24,7 +24,6 @@ vim.cmd [[Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }]]
 vim.cmd [[Plug 'junegunn/fzf.vim']]
 
 -- Snippets
-vim.cmd [[Plug 'SirVer/ultisnips']]
 vim.cmd [[Plug 'honza/vim-snippets']]
 vim.cmd [[Plug 'hrsh7th/vim-vsnip']]
 vim.cmd [[Plug 'hrsh7th/vim-vsnip-integ']]

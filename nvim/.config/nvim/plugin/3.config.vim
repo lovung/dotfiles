@@ -1,41 +1,6 @@
 "*****************************************************************************
 " Custom configs
 "*****************************************************************************
-" Moving
-" move to beginning/end of line
-nnoremap B ^
-nnoremap E $
-
-" Remap the hjkl
-nnoremap L l
-nnoremap H h
-nnoremap l w
-nnoremap h b
-
-" jk is escape
-inoremap jk <esc>
-inoremap :w<CR> <ESC>:w<CR>
-inoremap :q<CR> <ESC>:q<CR>
-inoremap <C-l> <Right>
-inoremap <C-h> <Left>
-
-" Save
-nnoremap <D-s> :w<CR>
-
-" Windows
-" Resize split window
-nnoremap <silent> + :exe "vertical resize +5"<CR>
-nnoremap <silent> _ :exe "vertical resize -5"<CR>
-nnoremap <silent> = :exe "resize +5"<CR>
-nnoremap <silent> - :exe "resize -5"<CR>
-
-" Remap paste
-vnoremap p "_dP
-
-" edit vimrc/zshrc and load vimrc bindings
-nnoremap <leader>ev :vsp $MYVIMRC<CR>
-nnoremap <leader>ez :vsp ~/.zshrc<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " go
 " vim-go
@@ -78,6 +43,8 @@ let g:go_debug_windows = {
       \ 'stack':      'rightbelow 10new',
 \ }
 
+set mmp=5000
+
 " ale
 let g:ale_linters = {}
 :call extend(g:ale_linters, {
@@ -90,3 +57,25 @@ let g:ale_linters = {}
 if filereadable(expand("~/.config/nvim/local_init.vim"))
   source ~/.config/nvim/local_init.vim
 endif
+
+
+
+"====================== FZF Configuration===============
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:80%' --layout reverse --margin=1,4 --preview 'bat --theme=gruvbox --color=always --style=header,grid --line-range :300 {}'"
+
+command! -bang -nargs=* RG
+  \ call fzf#vim#grep(
+  \   'rg --column --hidden --line-number --no-heading --color=always --smart-case -g "!{.git/node_modules}/*" -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+" ripgrep
+if executable('rg')
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!{.git,node_modules}/*"'
+  set grepprg=rg\ --vimgrep
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+endif
+

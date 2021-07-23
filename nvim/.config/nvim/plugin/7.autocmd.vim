@@ -46,10 +46,10 @@ augroup go
   au Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
   au Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
-  au FileType go nmap <leader>gr  <Plug>(go-run)
-  au FileType go nmap <leader>gt  <Plug>(go-test)
-  au FileType go nmap <Leader>gc <Plug>(go-coverage-toggle)
-  au FileType go nmap <Leader>gi <Plug>(go-info)
+  au FileType go nmap <Leader>cr  <Plug>(go-run)
+  au FileType go nmap <Leader>ct  <Plug>(go-test)
+  au FileType go nmap <Leader>cc <Plug>(go-coverage-toggle)
+  au FileType go nmap <Leader>ci <Plug>(go-info)
   " au FileType go nmap <leader>rb :<C-u>call <SID>build_go_files()<CR>
 augroup END
 

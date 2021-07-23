@@ -73,10 +73,6 @@ set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor
 set foldlevel=99
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-nmap <leader>fc :foldclose<CR> 
-nmap <leader>fo :foldopen<CR>
-nmap <leader>fa :set foldlevel=99<CR>
-nmap <leader>fl :set foldlevel=0<CR>
  
 " remove trailing whitespaces
 command! FixWhitespace :%s/\s\+$//e
