@@ -7,10 +7,10 @@ brew install stow
 
 ## Sync with ~/.config folder
 ```
-stow nvim
+stow -v kitty zsh nvim 
 ```
 
-
+# Neovim 0.5
 ## Remap
 ```
 " move to beginning/end of line
@@ -64,3 +64,9 @@ vnoremap p "_dP
 
 
 ### Visual mode
+
+# TODO:
+- [x] neovim
+- [x] zsh
+- [x] kitty
+- [ ] brew 
