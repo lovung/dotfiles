@@ -2,6 +2,8 @@
 " move to beginning/end of line
 nnoremap B ^
 nnoremap E $
+vnoremap B ^
+vnoremap E $
 
 " Remap the hjkl
 nnoremap L l

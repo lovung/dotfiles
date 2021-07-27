@@ -119,6 +119,6 @@ tnoremap   <silent> <Leader>tt    <C-\><C-n>:FloatermToggle<CR>
 
 
 "==============NERDTree configurations========================
-nnoremap tt :NERDTreeToggle<CR>
-nnoremap nf :NERDTreeFind<CR>
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+nnoremap <Leader>nf :NERDTreeFind<CR>
 
