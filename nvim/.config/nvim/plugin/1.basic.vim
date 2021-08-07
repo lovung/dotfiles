@@ -42,6 +42,10 @@ else
     set shell=/bin/sh
 endif
 
+" Wrapline
+set linebreak
+set showbreak=↪
+
 " session management
 let g:session_directory = "~/.config/nvim/session"
 let g:session_autoload = "no"

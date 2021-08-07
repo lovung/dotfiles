@@ -3,6 +3,7 @@ export PATH=/usr/local/go/bin:$HOME/go/bin:$HOME/flutter/flutter/bin:$GOPATH/bin
 export LC_ALL=en_US.UTF-8
 export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore -l ""'
 export EDITOR='nvim'
+source $HOME/.gvm/scripts/gvm
 
 alias dckr_clr_ctn="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
 alias dckr_clr_img='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
