@@ -1,2 +1,4 @@
 *history
-/zsh/.config/zsh/.zcompdump-VuLong-5.8
+/zsh/.config/zsh/.zcompdump-*
+/zsh/.config/zsh/.zsh_sessions/*
+/nvim/.config/nvim/plugged/

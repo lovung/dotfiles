@@ -69,8 +69,8 @@ let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:80%' --layout reverse --ma
 
 command! -bang -nargs=* RG
   \ call fzf#vim#grep(
-  \   'rg --column --hidden --line-number --no-heading --color=always --smart-case -g "!{.git/node_modules}/*" -- '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+  \   'rg --column --hidden --line-number --no-heading --color=always --smart-case -g "!{.git,node_modules}/*" -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 
 " ripgrep
 if executable('rg')
