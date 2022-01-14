@@ -24,9 +24,9 @@ vim.cmd [[Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }]]
 vim.cmd [[Plug 'junegunn/fzf.vim']]
 
 -- Snippets
-vim.cmd [[Plug 'honza/vim-snippets']]
-vim.cmd [[Plug 'hrsh7th/vim-vsnip']]
-vim.cmd [[Plug 'hrsh7th/vim-vsnip-integ']]
+-- vim.cmd [[Plug 'honza/vim-snippets']]
+-- vim.cmd [[Plug 'hrsh7th/vim-vsnip']]
+-- vim.cmd [[Plug 'hrsh7th/vim-vsnip-integ']]
 
 -- Color
 vim.cmd [[Plug 'tomasr/molokai']]
@@ -43,7 +43,9 @@ vim.cmd [[Plug 'neovim/nvim-lspconfig']]
 vim.cmd [[Plug 'kabouzeid/nvim-lspinstall']]
 vim.cmd [[Plug 'ray-x/lsp_signature.nvim']]
 vim.cmd [[Plug 'kevinhwang91/nvim-bqf']]
-vim.cmd [[Plug 'hrsh7th/nvim-compe']]
+-- vim.cmd [[Plug 'hrsh7th/nvim-compe']]
+vim.cmd [[Plug 'hrsh7th/nvim-cmp']] -- Autocompletion plugin
+vim.cmd [[Plug 'hrsh7th/cmp-nvim-lsp']] -- LSP source for nvim-cmp
 
 --   Lua LSP
 vim.cmd [[Plug 'euclidianAce/BetterLua.vim']] -- better syntax highlighting

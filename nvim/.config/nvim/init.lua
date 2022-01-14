@@ -17,7 +17,11 @@ require('lovung.lsp')
 require('lovung.treesitter')
 
 -- Neovim builtin Compe configuration
-require('lovung.compe')
+-- require('lovung.compe')
+
+-- A completion plugin for neovim coded in Lua.
+-- https://github.com/hrsh7th/nvim-cmp/
+require('lovung.cmp')
 
 -- Neovim builtin LSP Signature configuration
 require('lovung.signature')
