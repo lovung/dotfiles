@@ -38,7 +38,6 @@ set autoread
 augroup go
   autocmd!
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 300)
 
   au!
   au Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
