@@ -1,8 +1,8 @@
 vim.fn['plug#begin']('~/.config/nvim/plugged')
 
 vim.cmd [[Plug 'scrooloose/nerdtree']]
-vim.cmd [[Plug 'vim-airline/vim-airline']]
-vim.cmd [[Plug 'vim-airline/vim-airline-themes']]
+-- vim.cmd [[Plug 'vim-airline/vim-airline']]
+-- vim.cmd [[Plug 'vim-airline/vim-airline-themes']]
 vim.cmd [[Plug 'airblade/vim-gitgutter']]
 vim.cmd [[Plug 'vim-scripts/grep.vim']]
 vim.cmd [[Plug 'vim-scripts/CSApprox']]
@@ -13,7 +13,7 @@ vim.cmd [[Plug 'Yggdroot/indentLine']]
 vim.cmd [[Plug 'editor-bootstrap/vim-bootstrap-updater']]
 vim.cmd [[Plug 'sheerun/vim-polyglot']]
 vim.cmd [[Plug 'Mizux/vim-colorschemes']]
-vim.cmd [[Plug 'yuttie/comfortable-motion.vim']]
+-- vim.cmd [[Plug 'yuttie/comfortable-motion.vim']]
 vim.cmd [[Plug 'mg979/vim-visual-multi', {'branch': 'master'}]]
 
 vim.cmd [[Plug 'tpope/vim-commentary']]

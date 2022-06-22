@@ -8,28 +8,9 @@ nnoremap <silent> _ :exe "vertical resize -5"<CR>
 nnoremap <silent> = :exe "resize +5"<CR>
 nnoremap <silent> - :exe "resize -5"<CR>
 
-" edit vimrc/zshrc and load vimrc bindings
-nnoremap <Leader>ev :vsp $MYVIMRC<CR>
-
-" Folding
-nmap <Leader>fc :foldclose<CR> 
-nmap <Leader>fo :foldopen<CR>
-nmap <Leader>fa :set foldlevel=99<CR>
-nmap <Leader>fl :set foldlevel=0<CR>
-
 " Split
 noremap <Leader>sh :<C-u>split<CR>
 noremap <Leader>sv :<C-u>vsplit<CR>
-
-" Git
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Git commit --verbose<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
 
 " fzf.vim
 nnoremap <Leader>sc :RG<Cr>
@@ -117,8 +98,23 @@ tnoremap   <silent> <Leader>tq    <C-\><C-n>:FloatermKill<CR>
 nnoremap   <silent> <Leader>tt    :FloatermToggle<CR>
 tnoremap   <silent> <Leader>tt    <C-\><C-n>:FloatermToggle<CR>
 
+" Convert cases
+function! s:Camelize(range) abort
+  if a:range == 0
+    s#\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)#\u\1\2#g
+  else
+    s#\%V\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)\%V#\u\1\2#g
+  endif
+endfunction
 
-"==============NERDTree configurations========================
-nnoremap <Leader>nt :NERDTreeToggle<CR>
-nnoremap <Leader>nf :NERDTreeFind<CR>
+function! s:Snakeize(range) abort
+  if a:range == 0
+    s#\C\(\<\u[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)#\l\1_\l\2#g
+  else
+    s#\%V\C\(\<\u[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)\%V#\l\1_\l\2#g
+  endif
+endfunction
+
+command! -range CamelCase silent! call <SID>Camelize(<range>)
+command! -range SnakeCase silent! call <SID>Snakeize(<range>)
 

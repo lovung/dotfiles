@@ -46,7 +46,6 @@ else
   
 endif
 
-
 if &term =~ '256color'
   set t_ut=
 endif

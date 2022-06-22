@@ -35,20 +35,18 @@ let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 1
 let g:go_fmt_command = "goimports"
+let g:go_fmt_options = {
+    \ 'goimports': '-local git.garena.com',
+    \ }
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
-let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'test']
+" let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'test']
 let g:go_debug_windows = {
       \ 'vars':       'rightbelow 60vnew',
       \ 'stack':      'rightbelow 10new',
 \ }
 
 set mmp=5000
-
-" ale
-let g:ale_linters = {}
-:call extend(g:ale_linters, {
-    \"go": ['golint', 'go vet'], })
 
 "*****************************************************************************
 "*****************************************************************************

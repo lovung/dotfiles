@@ -34,7 +34,6 @@ augroup end
 set autoread
 
 " Auto-format *.go (golang) files prior to saving them
-
 augroup go
   autocmd!
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
