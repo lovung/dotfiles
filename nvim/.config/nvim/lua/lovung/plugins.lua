@@ -50,11 +50,7 @@ vim.cmd [[Plug 'hrsh7th/cmp-nvim-lsp']] -- LSP source for nvim-cmp
 --   Lua LSP
 vim.cmd [[Plug 'euclidianAce/BetterLua.vim']] -- better syntax highlighting
 
-vim.cmd [[Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}]]
-vim.cmd [[Plug 'sebdah/vim-delve']]
-
 -- Treesitter
 vim.cmd [[Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}]]
-vim.cmd [[Plug 'wakatime/vim-wakatime']]
 
 vim.fn['plug#end']()

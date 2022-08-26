@@ -38,24 +38,25 @@ augroup go
   autocmd!
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
-  au!
-  au Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-  au Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-  au Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-  au Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+  " au!
+  " au Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  " au Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+  " au Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+  " au Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
-  au FileType go nmap <Leader>cr  <Plug>(go-run)
-  au FileType go nmap <Leader>ct  <Plug>(go-test)
-  au FileType go nmap <Leader>cc <Plug>(go-coverage-toggle)
-  au FileType go nmap <Leader>ci <Plug>(go-info)
+  " au FileType go nmap <Leader>cr  <Plug>(go-run)
+  " au FileType go nmap <Leader>ct  <Plug>(go-test)
+  " au FileType go nmap <Leader>cc <Plug>(go-coverage-toggle)
+  " au FileType go nmap <Leader>ci <Plug>(go-info)
   " au FileType go nmap <leader>rb :<C-u>call <SID>build_go_files()<CR>
 augroup END
 
 " Auto build and run unit test
 augroup auto_json
 	autocmd!
-	autocmd BufWritePost *.json :%!python -m json.tool 
+	autocmd BufWritePost *.json :%!python3 -m json.tool 
 augroup end
 
 au BufRead,BufNewFile *.go set filetype=go
+
 
