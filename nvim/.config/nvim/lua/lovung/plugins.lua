@@ -43,6 +43,9 @@ vim.cmd [[Plug 'neovim/nvim-lspconfig']]
 vim.cmd [[Plug 'kabouzeid/nvim-lspinstall']]
 vim.cmd [[Plug 'ray-x/lsp_signature.nvim']]
 vim.cmd [[Plug 'kevinhwang91/nvim-bqf']]
+vim.cmd [[Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}]]
+vim.cmd [[Plug 'sebdah/vim-delve']]
+
 -- vim.cmd [[Plug 'hrsh7th/nvim-compe']]
 vim.cmd [[Plug 'hrsh7th/nvim-cmp']] -- Autocompletion plugin
 vim.cmd [[Plug 'hrsh7th/cmp-nvim-lsp']] -- LSP source for nvim-cmp
