@@ -7,7 +7,7 @@ brew install stow
 
 ## Sync with ~/.config folder
 ```
-stow -v kitty zsh nvim 
+stow -v kitty zsh nvim lvim
 ```
 
 # Neovim 0.5
@@ -67,6 +67,7 @@ vnoremap p "_dP
 
 # TODO:
 - [x] neovim
+- [x] Lunarvim
 - [x] zsh
 - [x] kitty
 - [ ] brew 
