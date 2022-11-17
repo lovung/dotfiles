@@ -116,7 +116,27 @@ lvim.keys.normal_mode["<C-e>"] = ":e#<cr>"
 lvim.keys.visual_mode[">"] = ">gv"
 lvim.keys.visual_mode["<"] = "<gv"
 
+--
+-- Moving
+-- move to beginning/end of line
+lvim.keys.normal_mode["B"] = "^"
+lvim.keys.normal_mode["E"] = "$"
+lvim.keys.visual_mode["B"] = "^"
+lvim.keys.visual_mode["E"] = "$"
 
+-- Remap the hjkl
+lvim.keys.normal_mode["H"] = "h"
+lvim.keys.normal_mode["L"] = "l"
+lvim.keys.normal_mode["l"] = "w"
+lvim.keys.normal_mode["h"] = "b"
+
+-- Save & quit in insert_mode
+lvim.keys.insert_mode[":w<cr>"] = "<esc>:w<cr>"
+lvim.keys.insert_mode[":q<cr>"] = "<esc>:q<cr>"
+
+-- Moving in insert_mode
+lvim.keys.insert_mode["<C-l>"] = "<Right>"
+lvim.keys.insert_mode["<C-h>"] = "<Left>"
 
 -- LSP
 -- mappings
