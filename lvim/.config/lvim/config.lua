@@ -119,6 +119,7 @@ lvim.plugins = {
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
   { 'mg979/vim-visual-multi' },
   { 'farmergreg/vim-lastplace' },
+  { 'puremourning/vimspector' },
 }
 
 ----------- My Configs ----------------
@@ -230,6 +231,33 @@ lvim.builtin.which_key.mappings.W = {
   v = { ":<C-u>vsplit<cr>", "Vertical split" },
 }
 
+-- vimspector config
+-- nnoremap <F1> :call vimspector#Launch()<CR>
+-- nnoremap <Leader>dl :call vimspector#Launch()<CR>
+-- nnoremap <F5> :call vimspector#Continue()<CR>
+-- nnoremap <Leader>dc :call vimspector#Continue()<CR>
+-- nnoremap <F2> :call vimspector#Reset()<CR>
+-- nnoremap <Leader>dq :call vimspector#Reset()<CR>
+-- nnoremap <F3> :call vimspector#Stop()<CR>
+-- nnoremap <Leader>ds :call vimspector#Stop()<CR>
+-- nnoremap <F4> :call vimspector#Restart()<CR>
+-- nnoremap <Leader>dr :call vimspector#Restart()<CR>
+-- nnoremap <F6> :call vimspector#Pause()<CR>
+-- nnoremap <F9> :call vimspector#ToggleBreakpoint()<CR>
+-- nnoremap <Leader>dp :call vimspector#ToggleBreakpoint()<CR>
+-- nnoremap <F10> :call vimspector#StepOver()<CR>
+-- nnoremap <Leader>dn :call vimspector#StepOver()<CR>
+-- nnoremap <F11> :call vimspector#StepInto()<CR>
+-- nnoremap <Leader>di :call vimspector#StepInto()<CR>
+-- nnoremap <F12> :call vimspector#StepOut()<CR>
+-- nnoremap <Leader>do :call vimspector#StepOut()<CR>
+-- lvim.builtin.which_key.mappings.W = {
+--   name = "Windows",
+--   h = { ":<C-u>split<cr>", "Horizontal split" },
+--   v = { ":<C-u>vsplit<cr>", "Vertical split" },
+-- }
+
+
 -- NvimTree key mappings
 -- Use `<leader>e`: Explorer instead
 lvim.builtin.which_key.mappings.n = {
@@ -248,10 +276,10 @@ lvim.builtin.telescope.pickers.find_files = {
 
 lvim.builtin.telescope.pickers.live_grep = {
   only_sort_text = true,
-  theme = "dropdown",
-  layout_config = { height = 0.99, width = 0.99, preview_cutoff = 120, preview_width = 0.6, prompt_position = "top" },
+  -- theme = "dropdown",
+  layout_config = { height = 0.90, width = 0.90, preview_cutoff = 30, preview_width = 0.5, prompt_position = "top" },
   layout_strategy = "horizontal",
-  hidden = true
+  hidden = false,
 }
 
 lvim.builtin.telescope.pickers.git_commits = {
@@ -266,4 +294,40 @@ linters.setup {
     command = "golangci-lint",
     filetypes = { "go" },
   },
+}
+
+-- Config DAP: https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#go-using-delve-directly
+local dap = require('dap')
+dap.adapters.delve = {
+  type = 'server',
+  port = '${port}',
+  executable = {
+    command = 'dlv',
+    args = { 'dap', '-l', '127.0.0.1:${port}' },
+  }
+}
+
+-- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
+dap.configurations.go = {
+  {
+    type = "delve",
+    name = "Debug",
+    request = "launch",
+    program = "${file}"
+  },
+  {
+    type = "delve",
+    name = "Debug test", -- configuration for debugging test files
+    request = "launch",
+    mode = "test",
+    program = "${file}"
+  },
+  -- works with go.mod packages and sub packages
+  {
+    type = "delve",
+    name = "Debug test (go.mod)",
+    request = "launch",
+    mode = "test",
+    program = "./${relativeFileDirname}"
+  }
 }
