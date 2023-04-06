@@ -274,12 +274,53 @@ lvim.builtin.telescope.pickers.find_files = {
   hidden = true,
 }
 
-lvim.builtin.telescope.pickers.live_grep = {
-  only_sort_text = true,
-  -- theme = "dropdown",
-  layout_config = { height = 0.90, width = 0.90, preview_cutoff = 30, preview_width = 0.5, prompt_position = "top" },
-  layout_strategy = "horizontal",
-  hidden = false,
+-- lvim.builtin.telescope.pickers.live_grep = {
+-- only_sort_text = true,
+-- theme = "dropdown",
+-- layout_config = { height = 0.90, width = 0.90, preview_cutoff = 30, preview_width = 0.5, prompt_position = "top" },
+-- layout_strategy = "horizontal",
+-- hidden = false,
+-- }
+lvim.builtin.telescope.defaults.file_ignore_patterns = {
+  "vendor/*",
+  "%.lock",
+  "__pycache__/*",
+  "%.sqlite3",
+  "%.ipynb",
+  "node_modules/*",
+  "%.jpg",
+  "%.jpeg",
+  "%.png",
+  "%.svg",
+  "%.otf",
+  "%.ttf",
+  ".git/",
+  "%.webp",
+  ".dart_tool/",
+  ".github/",
+  ".gradle/",
+  ".idea/",
+  ".settings/",
+  ".vscode/",
+  "__pycache__/",
+  "build/",
+  "env/",
+  "gradle/",
+  "node_modules/",
+  "target/",
+  "%.pdb",
+  "%.dll",
+  "%.class",
+  "%.exe",
+  "%.cache",
+  "%.ico",
+  "%.pdf",
+  "%.dylib",
+  "%.jar",
+  "%.docx",
+  "%.met",
+  "smalljre_*/*",
+  ".vale/",
 }
 
 lvim.builtin.telescope.pickers.git_commits = {
@@ -288,13 +329,13 @@ lvim.builtin.telescope.pickers.git_commits = {
 }
 
 -- Formatter & linter
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-  {
-    command = "golangci-lint",
-    filetypes = { "go" },
-  },
-}
+-- local linters = require "lvim.lsp.null-ls.linters"
+-- linters.setup {
+--   {
+--     command = "golangci-lint",
+--     filetypes = { "go" },
+--   },
+-- }
 
 -- Config DAP: https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#go-using-delve-directly
 local dap = require('dap')

@@ -27,3 +27,4 @@ alias n='nvim .'
 alias lv='lvim .'
 alias c='clear'
 alias ':q'='exit'
+export SP_UNIX_SOCKET=/tmp/spex.sock
