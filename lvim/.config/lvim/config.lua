@@ -51,7 +51,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
+-- lvim.builtin.which_key.mappings["g"] = {
 --   name = "+Trouble",
 --   r = { "<cmd>Trouble lsp_references<cr>", "References" },
 --   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
@@ -74,6 +74,7 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
+  "dart",
   "javascript",
   "json",
   "go",
@@ -120,52 +121,53 @@ lvim.plugins = {
   { 'mg979/vim-visual-multi' },
   { 'farmergreg/vim-lastplace' },
   { 'puremourning/vimspector' },
+  { 'nvim-telescope/telescope-fzf-native.nvim',   build = 'make' },
 }
 
 ----------- My Configs ----------------
 ---------------------------------------
-lvim.keys.normal_mode["<leader>sf"] = ":Telescope find_files theme=dropdown hidden=true previewer=true<cr>"
+lvim.keys.normal_mode["<leader>sf"] = "<cmd>Telescope find_files<cr>"
 lvim.keys.insert_mode["jk"] = "<esc>"
 
-vim.opt.backup = false -- creates a backup file
-vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
-vim.opt.colorcolumn = "99999" -- fixes indentline for now
+vim.opt.backup = false                     -- creates a backup file
+vim.opt.clipboard = "unnamedplus"          -- allows neovim to access the system clipboard
+vim.opt.cmdheight = 2                      -- more space in the neovim command line for displaying messages
+vim.opt.colorcolumn = "99999"              -- fixes indentline for now
 vim.opt.completeopt = { "menuone", "noselect" }
-vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
-vim.opt.fileencoding = "utf-8" -- the encoding written to a file
-vim.opt.foldmethod = "manual" -- folding set to "expr" for treesitter based folding
-vim.opt.foldexpr = "" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
+vim.opt.conceallevel = 0                   -- so that `` is visible in markdown files
+vim.opt.fileencoding = "utf-8"             -- the encoding written to a file
+vim.opt.foldmethod = "manual"              -- folding set to "expr" for treesitter based folding
+vim.opt.foldexpr = ""                      -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
 -- vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
-vim.opt.hidden = true -- required to keep multiple buffers and open multiple buffers
-vim.opt.hlsearch = true -- highlight all matches on previous search pattern
-vim.opt.ignorecase = true -- ignore case in search patterns
-vim.opt.mouse = "a" -- allow the mouse to be used in neovim
-vim.opt.pumheight = 10 -- pop up menu height
-vim.opt.showmode = true -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 2 -- always show tabs
-vim.opt.smartcase = true -- smart case
-vim.opt.smartindent = true -- make indenting smarter again
-vim.opt.splitbelow = true -- force all horizontal splits to go below current window
-vim.opt.splitright = true -- force all vertical splits to go to the right of current window
-vim.opt.swapfile = false -- creates a swapfile
-vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
-vim.opt.timeoutlen = 100 -- time to wait for a mapped sequence to complete (in milliseconds)
-vim.opt.title = true -- set the title of window to the value of the titlestring
+vim.opt.hidden = true                      -- required to keep multiple buffers and open multiple buffers
+vim.opt.hlsearch = true                    -- highlight all matches on previous search pattern
+vim.opt.ignorecase = true                  -- ignore case in search patterns
+vim.opt.mouse = "a"                        -- allow the mouse to be used in neovim
+vim.opt.pumheight = 10                     -- pop up menu height
+vim.opt.showmode = true                    -- we don't need to see things like -- INSERT -- anymore
+vim.opt.showtabline = 2                    -- always show tabs
+vim.opt.smartcase = true                   -- smart case
+vim.opt.smartindent = true                 -- make indenting smarter again
+vim.opt.splitbelow = true                  -- force all horizontal splits to go below current window
+vim.opt.splitright = true                  -- force all vertical splits to go to the right of current window
+vim.opt.swapfile = false                   -- creates a swapfile
+vim.opt.termguicolors = true               -- set term gui colors (most terminals support this)
+vim.opt.timeoutlen = 100                   -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.title = true                       -- set the title of window to the value of the titlestring
 vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
 vim.opt.undodir = vim.fn.stdpath "cache" .. "/undo"
-vim.opt.undofile = true -- enable persistent undo
-vim.opt.updatetime = 300 -- faster completion
-vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
-vim.opt.expandtab = true -- convert tabs to spaces
-vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
-vim.opt.tabstop = 2 -- insert 2 spaces for a tab
-vim.opt.cursorline = true -- highlight the current line
-vim.opt.number = true -- set numbered lines
-vim.opt.relativenumber = true -- set relative numbered lines
-vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
-vim.opt.signcolumn = "yes" -- always show the sign column otherwise it would shift the text each time
-vim.opt.wrap = false -- display lines as one long line
+vim.opt.undofile = true                    -- enable persistent undo
+vim.opt.updatetime = 300                   -- faster completion
+vim.opt.writebackup = false                -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
+vim.opt.expandtab = true                   -- convert tabs to spaces
+vim.opt.shiftwidth = 2                     -- the number of spaces inserted for each indentation
+vim.opt.tabstop = 2                        -- insert 2 spaces for a tab
+vim.opt.cursorline = true                  -- highlight the current line
+vim.opt.number = true                      -- set numbered lines
+vim.opt.relativenumber = true              -- set relative numbered lines
+vim.opt.numberwidth = 4                    -- set number column width to 2 {default 4}
+vim.opt.signcolumn = "yes"                 -- always show the sign column otherwise it would shift the text each time
+vim.opt.wrap = false                       -- display lines as one long line
 vim.opt.spell = false
 vim.opt.spelllang = "en"
 vim.opt.scrolloff = 8 -- is one of my fav
@@ -269,18 +271,19 @@ lvim.builtin.which_key.mappings.n = {
 -- Telescope configurations
 -- Enable preview in find files
 lvim.builtin.telescope.pickers.find_files = {
-  layout_strategy = "center",
-  layout_config = { width = 0.80, height = 0.80, preview_width = nil, prompt_position = "bottom" },
+  layout_strategy = "horizontal",
+  layout_config = { width = 0.90, height = 0.90, preview_cutoff = 30, preview_width = 0.5, prompt_position = "bottom" },
   hidden = true,
 }
 
--- lvim.builtin.telescope.pickers.live_grep = {
--- only_sort_text = true,
--- theme = "dropdown",
--- layout_config = { height = 0.90, width = 0.90, preview_cutoff = 30, preview_width = 0.5, prompt_position = "top" },
--- layout_strategy = "horizontal",
--- hidden = false,
--- }
+lvim.builtin.telescope.pickers.live_grep = {
+  only_sort_text = true,
+  theme = "dropdown",
+  layout_config = { height = 0.90, width = 0.90, preview_cutoff = 30, preview_width = 0.5, prompt_position = "bottom" },
+  layout_strategy = "horizontal",
+  hidden = false,
+}
+
 lvim.builtin.telescope.defaults.file_ignore_patterns = {
   "vendor/*",
   "%.lock",
@@ -371,4 +374,33 @@ dap.configurations.go = {
     mode = "test",
     program = "./${relativeFileDirname}"
   }
+}
+
+local luasnip = require("luasnip")
+luasnip.filetype_extend("dart", { "flutter" })
+
+-- You dont need to set any of these options. These are the default ones. Only
+-- the loading is important
+require('telescope').setup {
+  extensions = {
+    fzf = {
+      fuzzy = true,                   -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true,    -- override the file sorter
+      case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+      -- the default case_mode is "smart_case"
+    }
+  }
+}
+-- To get fzf loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+require('telescope').load_extension('fzf')
+
+lvim.autocommands = {
+  {
+    "VimEnter",
+    {
+      command = "Telescope find_files",
+    }
+  },
 }
