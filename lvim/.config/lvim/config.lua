@@ -110,6 +110,23 @@ lvim.builtin.treesitter.textobjects = {
   },
 }
 
+-- Bigfile config
+lvim.builtin.bigfile.config = {
+  -- size of the file in MiB, the plugin round file sizes to the closest MiB
+  filesize = 10,
+  -- features to disable
+  features = {
+    "indent_blankline",
+    "illuminate",
+    -- "treesitter",
+    -- "lsp",
+    -- "syntax",
+    "matchparen",
+    "vimopts",
+    "filetype",
+  },
+}
+
 -- Additional Plugins
 lvim.plugins = {
   { "ellisonleao/gruvbox.nvim" },
