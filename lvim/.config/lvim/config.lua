@@ -111,16 +111,16 @@ lvim.builtin.treesitter.textobjects = {
 }
 
 -- Bigfile config
+lvim.builtin.bigfile.active = false
 lvim.builtin.bigfile.config = {
-  -- size of the file in MiB, the plugin round file sizes to the closest MiB
-  filesize = 10,
-  -- features to disable
-  features = {
+  filesize = 2,      -- size of the file in MiB, the plugin round file sizes to the closest MiB
+  pattern = { "*" }, -- autocmd pattern or function see <### Overriding the detection of big files>
+  features = {       -- features to disable
     "indent_blankline",
     "illuminate",
-    -- "treesitter",
-    -- "lsp",
-    -- "syntax",
+    "lsp",
+    "treesitter",
+    "syntax",
     "matchparen",
     "vimopts",
     "filetype",
