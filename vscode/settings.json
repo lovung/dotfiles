@@ -1,0 +1,156 @@
+{
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "files.autoSave": "onFocusChange",
+  "workbench.editor.showTabs": "single",
+  "editor.inlineSuggest.enabled": true,
+  "go.formatTool": "goimports",
+  "editor.formatOnSave": true,
+  "go.lintTool": "golint",
+  "go.lintFlags": [
+    "--fast",
+    "-E",
+    "goimports",
+    "-E",
+    "gocritic",
+    "-E",
+    "gocyclo",
+    "-E",
+    "gosec",
+    "-E",
+    "maligned",
+    "-E",
+    "scopelint",
+    "-E",
+    "interfacer",
+    "-E",
+    "goconst",
+    "-E",
+    "unconvert",
+    "-E",
+    "unparam",
+    "-E",
+    "prealloc",
+    "-E",
+    "varcheck",
+  ],
+  "editor.foldingMaximumRegions": 50000,
+  "security.workspace.trust.untrustedFiles": "open",
+  "go.toolsManagement.autoUpdate": true,
+  "editor.lineNumbers": "relative",
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off"
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "go.testEnvFile": "",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "vim.easymotion": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<C-b>"
+      ],
+      "after": [
+        "<leader>",
+        "<leader>",
+        "b"
+      ]
+    },
+    {
+      "before": [
+        "<C-w>"
+      ],
+      "after": [
+        "<leader>",
+        "<leader>",
+        "w"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "after": [
+        "d",
+        "d"
+      ]
+    },
+    {
+      "before": [
+        "h"
+      ],
+      "after": [
+        "b"
+      ]
+    },
+    {
+      "before": [
+        "l"
+      ],
+      "after": [
+        "e"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "h"
+      ],
+      "commands": [
+        ":nohl"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "l",
+        "r"
+      ],
+      "commands": [
+        "editor.action.rename"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "I"
+      ],
+      "commands": [
+        "editor.action.goToImplementation"
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ],
+      "silent": true
+    }
+  ],
+  "vim.leader": ","
+}
