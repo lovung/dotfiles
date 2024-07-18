@@ -280,6 +280,8 @@ lvim.keys.normal_mode["-"] = ":exe \"resize -5\"<cr>"
 lvim.keys.visual_mode["p"] = "\"_dP"
 lvim.keys.visual_block_mode["p"] = "\"_dP"
 
+lvim.keys.normal_mode["gi"] = "<cmd>lua vim.lsp.buf.implementation()<cr>"
+
 -- Windows
 lvim.builtin.which_key.mappings.W = {
   name = "Windows",
@@ -469,3 +471,21 @@ lvim.autocommands = {
     }
   },
 }
+
+-- local opts = {
+--   settings = {
+--     -- gopls = {
+--     analyses = {
+--       unusedparams = true,
+--     },
+--     staticcheck = true,
+--     gofumpt = true,
+--     hints = {
+--       parameterNames = true,
+--       constantValues = true,
+--       rangeVariableTypes = true,
+--     },
+--     -- },
+--   },
+-- }
+-- require("lvim.lsp.manager").setup("gopls", opts)

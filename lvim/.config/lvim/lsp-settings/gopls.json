@@ -1,0 +1,7 @@
+{
+  "hints": {
+    "parameterNames": true,
+    "constantValues": true,
+    "rangeVariableTypes": true
+  }
+}
