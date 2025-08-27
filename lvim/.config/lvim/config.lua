@@ -74,17 +74,13 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
+  "cpp",
   "dart",
   "javascript",
   "json",
   "go",
   "lua",
   "python",
-  "typescript",
-  "tsx",
-  "css",
-  "rust",
-  "java",
   "yaml",
 }
 
@@ -176,6 +172,7 @@ lvim.plugins = {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
+  { "MysticalDevil/inlay-hints.nvim" },
 }
 
 ----------- My Configs ----------------
@@ -280,8 +277,15 @@ lvim.keys.normal_mode["-"] = ":exe \"resize -5\"<cr>"
 lvim.keys.visual_mode["p"] = "\"_dP"
 lvim.keys.visual_block_mode["p"] = "\"_dP"
 
+<<<<<<< Updated upstream
 lvim.keys.normal_mode["gi"] = "<cmd>lua vim.lsp.buf.implementation()<cr>"
 
+||||||| Stash base
+=======
+-- LSP
+lvim.keys.normal_mode["gi"] = "<cmd>lua vim.lsp.buf.implementation()<cr>"
+
+>>>>>>> Stashed changes
 -- Windows
 lvim.builtin.which_key.mappings.W = {
   name = "Windows",
@@ -309,11 +313,6 @@ lvim.builtin.which_key.mappings.W = {
 -- nnoremap <Leader>di :call vimspector#StepInto()<CR>
 -- nnoremap <F12> :call vimspector#StepOut()<CR>
 -- nnoremap <Leader>do :call vimspector#StepOut()<CR>
--- lvim.builtin.which_key.mappings.W = {
---   name = "Windows",
---   h = { ":<C-u>split<cr>", "Horizontal split" },
---   v = { ":<C-u>vsplit<cr>", "Vertical split" },
--- }
 
 
 -- NvimTree key mappings
@@ -462,6 +461,35 @@ require('telescope').setup {
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
+
+require("inlay-hints").setup({
+  commands = { enable = true }, -- Enable InlayHints commands, include `InlayHintsToggle`, `InlayHintsEnable` and `InlayHintsDisable`
+  autocmd = { enable = true }   -- Enable the inlay hints on `LspAttach` event
+})
+require("lspconfig").gopls.setup({
+  on_attach = function(client, bufnr)
+    require("lvim.lsp").common_on_attach(client, bufnr)
+
+    -- Enable inlay hints if supported
+    -- if client.server_capabilities.inlayHintProvider then
+    --   vim.lsp.buf.inlay_hint(bufnr, true)
+    -- end
+  end,
+  settings = {
+    gopls = {
+      -- Configure gopls inlay hints settings
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
+    },
+  },
+})
 
 lvim.autocommands = {
   {

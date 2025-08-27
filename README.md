@@ -7,7 +7,7 @@ brew install stow
 
 ## Sync with ~/.config folder
 ```
-stow -v kitty zsh nvim lvim
+stow -v kitty zsh lazyvim lvim
 ```
 
 # Neovim 0.5

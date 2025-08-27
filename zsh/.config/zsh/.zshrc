@@ -82,6 +82,7 @@ plugins=(
   git
   bundler
   dotenv
+  docker
   macos
   rake
   rbenv
@@ -119,3 +120,7 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 [[ ! -f ~/.config/zsh/.profile ]] || source ~/.config/zsh/.profile
 
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+
+# bun completions
+[ -s "/Users/drake/.bun/_bun" ] && source "/Users/drake/.bun/_bun"

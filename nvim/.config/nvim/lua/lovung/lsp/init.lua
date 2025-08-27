@@ -1,13 +1,13 @@
 local has_lsp, _ = pcall(require, 'lspconfig')
 if not has_lsp then
-    return
+  return
 end
 
 local nvim_lsp = require('lspconfig')
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<Leader>ld', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -21,7 +21,7 @@ local on_attach = function(client, bufnr)
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', '<Leader>lh', vim.lsp.buf.hover, bufopts)
@@ -50,16 +50,16 @@ local servers = { "pyright", "gopls", "clangd" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
-    flags = lsp_flags,  
+    flags = lsp_flags,
   }
 end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
     vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics,
-    {
+      vim.lsp.diagnostic.on_publish_diagnostics,
+      {
         underline = false,
         virtual_text = false,
         update_in_insert = false
-    }
-)
+      }
+    )
